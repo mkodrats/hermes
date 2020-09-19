@@ -39,6 +39,7 @@ func main() {
 	themes := []hermes.Theme{
 		new(hermes.Default),
 		new(hermes.Flat),
+		new(hermes.WithQRCode),
 	}
 
 	// Generate emails

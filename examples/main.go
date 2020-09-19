@@ -3,8 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
+	"github.com/AuthScureDevelopment/hermes"
 	"github.com/go-gomail/gomail"
-	"github.com/matcornic/hermes/v2"
 	"golang.org/x/crypto/ssh/terminal"
 	"io/ioutil"
 	"net/mail"

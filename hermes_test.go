@@ -1,7 +1,6 @@
 package hermes
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

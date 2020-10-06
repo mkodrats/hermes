@@ -21,7 +21,7 @@ func (w *inviteCode) Email() hermes.Email {
 			Actions: []hermes.Action{
 				{
 					Instructions: "Please copy your invite code:",
-					InviteCode: "123456",
+					InviteCode:   "123456",
 				},
 			},
 			Outros: []string{

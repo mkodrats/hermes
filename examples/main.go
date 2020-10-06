@@ -40,6 +40,7 @@ func main() {
 		new(hermes.Default),
 		new(hermes.Flat),
 		new(hermes.WithQRCode),
+		new(hermes.RegisterConfirmation),
 	}
 
 	// Generate emails

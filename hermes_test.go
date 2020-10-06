@@ -1,8 +1,11 @@
 package hermes
 
 import (
-	"github.com/stretchr/testify/assert"
+	"fmt"
+	"log"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 var testedThemes = []Theme{
@@ -267,11 +270,11 @@ func (ed *WithInviteCode) getExample() (Hermes, Email) {
 
 	email := Email{
 		Body{
-			Name:      "Jon Snow",
+			Name: "Jon Snow",
 			Actions: []Action{
 				{
 					Instructions: "Here is your invite code:",
-					InviteCode: "123456",
+					InviteCode:   "123456",
 				},
 			},
 		},
@@ -519,6 +522,66 @@ func TestHermes_WithQR(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, h.TextDirection, TDLeftToRight)
 	assert.Equal(t, h.Theme.Name(), "with_qr_code")
+}
+
+func TestHermes_Register(t *testing.T) {
+	h := Hermes{
+		Theme: new(RegisterConfirmation),
+		Product: Product{
+			Name:      "Petronas Love Local",
+			Link:      "",
+			Logo:      "https://storage.googleapis.com/offer-img-stg/logo-1%403x.png",
+			Copyright: "Petronas Love Local ©2020. All Rights Reserved",
+		},
+	}
+
+	email := Email{
+		Body: Body{
+			Name:         "Lucifer",
+			Intros:       nil,
+			Dictionary:   nil,
+			Table:        Table{},
+			QRCode:       "",
+			Actions:      nil,
+			Outros:       nil,
+			Greeting:     "",
+			Signature:    "",
+			Title:        "",
+			FreeMarkdown: "",
+			Registration: Registration{
+				Logo: "https://storage.googleapis.com/offer-img-stg/logo-1%403x.png",
+				Name: "Lucifer",
+				Intros: []string{
+					"We have received your account registration request.",
+					"To complete the registration, please click the button or manually copy & paste the provided link in your browser url address bar to verify your email account :",
+				},
+				ActionButton: "COMPLETE REGISTRATION",
+				ActionURL:    "https://www.petronaslovelocal.com/activate/token/1234567890xyzpqr0987",
+				Expiration:   "1 hour",
+				Signature:    "Petronas Love Local",
+				Help:         "If the button above is not clickable, copy and paste the link below to activate your account.",
+				Copyright:    "Petronas Love Local ©2020. All Rights Reserved",
+				SocialMedia: SocialMedia{
+					Facebook:  "facebookURL",
+					Instagram: "instagramURL",
+					Twitter:   "twitterURL",
+					Youtube:   "youtubeURL",
+				},
+				Contact: Contact{
+					Email:       " (+60) 19 200 300",
+					PhoneNumber: " offers@petronaslove.com.my",
+				},
+				AboutUs: "aboutUsURL",
+				ToU:     "ToUURL",
+			},
+		},
+	}
+	res, err := h.GenerateHTML(email)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(res)
 }
 
 func TestHermes_Default(t *testing.T) {

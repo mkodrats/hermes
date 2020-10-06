@@ -73,8 +73,36 @@ type Body struct {
 	Signature    string   // Signature for the contacted person (default to 'Yours truly')
 	Title        string   // Title replaces the greeting+name when set
 	FreeMarkdown Markdown // Free markdown content that replaces all content other than header and footer
+	Registration Registration
 }
 
+type (
+	Registration struct {
+		Logo         string
+		Name         string
+		Intros       []string
+		ActionButton string
+		ActionURL    string
+		Expiration   string
+		Signature    string
+		Help         string
+		Copyright    string
+		SocialMedia  SocialMedia
+		Contact      Contact
+		AboutUs      string
+		ToU          string
+	}
+	SocialMedia struct {
+		Facebook  string
+		Instagram string
+		Twitter   string
+		Youtube   string
+	}
+	Contact struct {
+		Email       string
+		PhoneNumber string
+	}
+)
 
 // ToHTML converts Markdown to HTML
 func (c Markdown) ToHTML() template.HTML {

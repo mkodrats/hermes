@@ -165,7 +165,7 @@ func (dt *RegisterConfirmation) HTMLTemplate() string {
 					</div>
 				</div>
 			</div>
-				<p class="footer-p">{copyright}</p>
+				<p class="footer-p">{{ .Email.Body.Registration.Copyright }}</p>
 		</div>
 	</div>
 </body>

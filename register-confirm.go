@@ -18,14 +18,10 @@ func (dt *RegisterConfirmation) HTMLTemplate() string {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-
-	<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/bb331ac001.js" crossorigin="anonymous"></script>
 </head>
 <style>
 	body {
-		font-family: 'Muli';
+		font-family:  Arial, 'Helvetica Neue', Helvetica, sans-serif;
 	}
 
 	.container {
@@ -76,7 +72,7 @@ func (dt *RegisterConfirmation) HTMLTemplate() string {
 		margin-top: 50px;
 		background-color: #19a29c;
 		width: 100%;
-		height: auto;
+		height: 150px;
 		padding: 10px;
 	}
 
@@ -165,7 +161,9 @@ func (dt *RegisterConfirmation) HTMLTemplate() string {
 					</div>
 				</div>
 			</div>
+			<div style="margin-top:20px;min-width:266px;float:center;font-size:12px;color:#ffffff; display: inline-flex;">
 				<p class="footer-p">{{ .Email.Body.Registration.Copyright }}</p>
+			</div>
 		</div>
 	</div>
 </body>

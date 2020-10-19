@@ -89,6 +89,7 @@ type (
 		Copyright    string
 		SocialMedia  SocialMedia
 		Contact      Contact
+		EmailAddress string
 		AboutUs      string
 		ToU          string
 	}

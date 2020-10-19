@@ -41,6 +41,7 @@ func main() {
 		new(hermes.Flat),
 		new(hermes.WithQRCode),
 		new(hermes.RegisterConfirmation),
+		new(hermes.OfferNotification),
 	}
 
 	// Generate emails

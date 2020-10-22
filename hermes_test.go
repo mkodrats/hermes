@@ -568,8 +568,8 @@ func TestHermes_Register(t *testing.T) {
 					Youtube:   "youtubeURL",
 				},
 				Contact: Contact{
-					Email:       " (+60) 19 200 300",
-					PhoneNumber: " offers@petronaslove.com.my",
+					Email:       " mesralink@petronas.com",
+					PhoneNumber: " (+60) 19 200 300",
 				},
 				AboutUs: "aboutUsURL",
 				ToU:     "ToUURL",

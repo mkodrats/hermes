@@ -71,9 +71,21 @@ func (dt *RegisterSummary) HTMLTemplate() string {
 	.footer {
 		margin-top: 50px;
 		background-color: #19a29c;
-		width: 100%;
-		height: 150px;
+		width: 95%;
+		height: 170px;
 		padding: 10px;
+	}
+
+	.container-footer {
+		margin: auto;
+	}
+
+	.column {
+		margin-top: 20px;
+		min-width: 200px;
+		float: left;
+		font-size: 12px;
+		color: #ffffff !important;
 	}
 
 	.container-footer {
@@ -144,19 +156,17 @@ func (dt *RegisterSummary) HTMLTemplate() string {
 					</div>
 					<div class="column">
 						<h3>Contact us</h3>
-						<p class="pi"><i class="fas fa-phone-alt pi"></i> {{ .Email.Body.Registration.Contact.PhoneNumber }}</p>
-						<p class="pi"><i class="far fa-envelope pi"></i> {{ .Email.Body.Registration.Contact.Email }}</p>
+						<p class="pi"><i class="fas fa-phone-alt pi"></i> Mesralink Contact Number</p>
+						<p class="pi"><i class="far fa-envelope pi"></i> {{ .Email.Body.Registration.Contact.PhoneNumber }}</p>
 					</div>
-					<div class="column">
-						<h3>Follow us</h3>
-                        <a href="{{ .Email.Body.Registration.SocialMedia.Facebook }}"><i class="fab fa-facebook"></i></a>
-                        <a href="{{ .Email.Body.Registration.SocialMedia.Instagram }}"><i class="fab fa-instagram"></i></a>
-                        <a href="{{ .Email.Body.Registration.SocialMedia.Twitter }}"><i class="fab fa-twitter"></i></a>
-                        <a href="{{ .Email.Body.Registration.SocialMedia.Youtube }}"> <i class="fab fa-youtube"></i></a>
+					<div style="margin-top:50px;min-width:200px;float:left;font-size:12px;color:#ffffff">
+						<p class="pi" style="text-decoration: none; color:#fff;"><i class="fas fa-phone-alt pi"></i> <a href="mailto:offers@petronaslove.com.my" target="_blank" style="text-decoration: none; color: #fff">offers@petronaslove.com.my</a></p>
+						<p class="pi" style="text-decoration: none; color:#fff;"><i class="far fa-envelope pi"></i> <a href="mailto:{{ .Email.Body.Registration.Contact.Email }}" target="_blank" style="text-decoration: none; color: #fff">{{ .Email.Body.Registration.Contact.Email }}</a></p>
 					</div>
 				</div>
 			</div>
-			<div style="margin-top:20px;min-width:266px;float:center;font-size:12px;color:#ffffff; display: inline-flex;">
+			<div class="hhh"></div>
+			<div style="margin-top:10px;min-width:100%;text-align:center;font-size:12px;color:#ffffff;display: flow-root;">
 				<p class="footer-p">{{ .Email.Body.Registration.Copyright }}</p>
 			</div>
 		</div>

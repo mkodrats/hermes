@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -525,6 +526,8 @@ func TestHermes_WithQR(t *testing.T) {
 }
 
 func TestHermes_Register(t *testing.T) {
+
+	expiration := time.Now().Add(time.Hour * 1).Format("2006-01-02 15:04:05")
 	h := Hermes{
 		Theme: new(RegisterConfirmation),
 		Product: Product{
@@ -553,11 +556,11 @@ func TestHermes_Register(t *testing.T) {
 				Name: "Lucifer",
 				Intros: []string{
 					"We have received your account registration request.",
-					"To complete the registration, please click the button or manually copy & paste the provided link in your browser url address bar to verify your email account :",
+					"To complete the registration, please click the button below to verify your email address :",
 				},
 				ActionButton: "COMPLETE REGISTRATION",
 				ActionURL:    "https://www.petronaslovelocal.com/activate/token/1234567890xyzpqr0987",
-				Expiration:   "1 hour",
+				Expiration:   expiration,
 				Signature:    "Petronas Love Local",
 				Help:         "If the button above is not clickable, copy and paste the link below to activate your account.",
 				Copyright:    "Petronas Love Local ©2020. All Rights Reserved",

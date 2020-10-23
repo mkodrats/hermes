@@ -131,7 +131,7 @@ func (dt *RegisterConfirmation) HTMLTemplate() string {
 		<div class="container">
             <!-- Company Header -->
 			<img class="company-image-header" src="{{ .Email.Body.Registration.Logo }}" alt=""srcset="">
-			<h1>{{ .Email.Body.Registration.Name }}</h1>
+			<h1>Dear {{ .Email.Body.Registration.Name }},</h1>
  			{{ range $row := .Email.Body.Registration.Intros }}
 			<p>{{ $row }}</p>
     		{{ end }}
@@ -140,7 +140,7 @@ func (dt *RegisterConfirmation) HTMLTemplate() string {
 			<p class="help">{{ .Email.Body.Registration.Help }}</p>
 			<a class="help link"
 				href="{{ .Email.Body.Registration.ActionURL }}">{{ .Email.Body.Registration.ActionURL }}</a>
-			<p>(expire in {{ .Email.Body.Registration.Expiration }}).</p>
+			<p>(The confirmation link is valid until {{ .Email.Body.Registration.Expiration }})</p>
 			<div class="signature">
 				<p>Best Regards,</p>
 				<p>{{ .Email.Body.Registration.Signature }}</p>

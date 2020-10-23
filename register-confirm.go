@@ -131,7 +131,7 @@ func (dt *RegisterConfirmation) HTMLTemplate() string {
 		<div class="container">
             <!-- Company Header -->
 			<img class="company-image-header" src="{{ .Email.Body.Registration.Logo }}" alt=""srcset="">
-			<h1>Dear {{ .Email.Body.Registration.Name }},</h1>
+			<h1>Hello {{ .Email.Body.Registration.Name }},</h1>
  			{{ range $row := .Email.Body.Registration.Intros }}
 			<p>{{ $row }}</p>
     		{{ end }}

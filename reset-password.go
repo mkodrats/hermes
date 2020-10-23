@@ -123,7 +123,7 @@ func (dt *ResetPassword) HTMLTemplate() string {
 		<div class="container">
             <!-- Company Header -->
 			<img class="company-image-header" src="{{ .Email.Body.Registration.Logo }}" alt=""srcset="">
-			<h1>Hi, {{ .Email.Body.Registration.Name }}</h1>
+			<h1>Hello {{ .Email.Body.Registration.Name }},</h1>
  			{{ range $row := .Email.Body.Registration.Intros }}
 			<p>{{ $row }}</p>
     		{{ end }}

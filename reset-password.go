@@ -132,7 +132,7 @@ func (dt *ResetPassword) HTMLTemplate() string {
 			<p class="help">{{ .Email.Body.Registration.Help }}</p>
 			<a class="help link"
 				href="{{ .Email.Body.Registration.ActionURL }}">{{ .Email.Body.Registration.ActionURL }}</a>
-			<p>(expire in {{ .Email.Body.Registration.Expiration }}).</p>
+			<p>(The confirmation link is valid until {{ .Email.Body.Registration.Expiration }})</p>
 			<div class="signature">
 				<p>Best Regards,</p>
 				<p>{{ .Email.Body.Registration.Signature }}</p>

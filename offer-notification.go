@@ -150,7 +150,7 @@ func (dt *OfferNotification) HTMLTemplate() string {
 			<div class="container">
 				<div class="row">
 					<div class="column">
-						<h3>Explore Petronas Love</h3>
+						<h3>Explore Petronas Love Local</h3>
 						<p><a href="{{ .Email.Body.Registration.AboutUs }}">About Us</a></p>
 						<p><a href="{{ .Email.Body.Registration.ToU }}">Term Of Use</a></p>
 					</div>

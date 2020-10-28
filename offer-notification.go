@@ -150,7 +150,7 @@ func (dt *OfferNotification) HTMLTemplate() string {
 			<div class="container">
 				<div class="row">
 					<div class="column">
-						<h3>Explore Petronas Love</h3>
+						<h3>Explore Love Local</h3>
 						<p><a href="{{ .Email.Body.Registration.AboutUs }}">About Us</a></p>
 						<p><a href="{{ .Email.Body.Registration.ToU }}">Term Of Use</a></p>
 					</div>
@@ -160,7 +160,7 @@ func (dt *OfferNotification) HTMLTemplate() string {
 						<p class="pi"><i class="far fa-envelope pi"></i> {{ .Email.Body.Registration.Contact.PhoneNumber }}</p>
 					</div>
 					<div style="margin-top:50px;min-width:200px;float:left;font-size:12px;color:#ffffff">
-						<p class="pi" style="text-decoration: none; color:#fff;"><i class="fas fa-phone-alt pi"></i> <a href="mailto:offers@petronaslove.com.my" target="_blank" style="text-decoration: none; color: #fff">offers@petronaslove.com.my</a></p>
+						<p class="pi" style="text-decoration: none; color:#fff;"><i class="fas fa-phone-alt pi"></i> <a href="mailto:offers@petronaslove.com.my" target="_blank" style="text-decoration: none; color: #fff">Mesralink Support Email</a></p>
 						<p class="pi" style="text-decoration: none; color:#fff;"><i class="far fa-envelope pi"></i> <a href="mailto:{{ .Email.Body.Registration.Contact.Email }}" target="_blank" style="text-decoration: none; color: #fff">{{ .Email.Body.Registration.Contact.Email }}</a></p>
 					</div>
 				</div>

@@ -78,20 +78,21 @@ type Body struct {
 
 type (
 	Registration struct {
-		Logo         string
-		Name         string
-		Intros       []string
-		ActionButton string
-		ActionURL    string
-		Expiration   string
-		Signature    string
-		Help         string
-		Copyright    string
-		SocialMedia  SocialMedia
-		Contact      Contact
-		EmailAddress string
-		AboutUs      string
-		ToU          string
+		Logo              string
+		Name              string
+		Intros            []string
+		ActionButton      string
+		ActionURL         string
+		Expiration        string
+		TemporaryPassword string
+		Signature         string
+		Help              string
+		Copyright         string
+		SocialMedia       SocialMedia
+		Contact           Contact
+		EmailAddress      string
+		AboutUs           string
+		ToU               string
 	}
 	SocialMedia struct {
 		Facebook  string

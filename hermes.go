@@ -84,6 +84,7 @@ type (
 		ActionButton      string
 		ActionURL         string
 		Expiration        string
+		Username          string
 		TemporaryPassword string
 		Signature         string
 		Help              string

@@ -130,6 +130,7 @@ func (dt *TemporaryPassword) HTMLTemplate() string {
 			<br>
 			
 			<div style="background-color:#E7F6F5;width:95%;padding:10px">
+				 <p>Your username is : {{.Email.Body.Registration.Username}}</p>
 				 <p>Your temporary password is : {{.Email.Body.Registration.TemporaryPassword}}</p>
 			</div>
 

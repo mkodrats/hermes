@@ -701,6 +701,64 @@ func TestHermes_OfferNotification(t *testing.T) {
 	fmt.Println(res)
 }
 
+func TestHermes_TemporaryPassword(t *testing.T) {
+	h := Hermes{
+		Theme: new(TemporaryPassword),
+		Product: Product{
+			Name:      "Petronas Love Local",
+			Link:      "",
+			Logo:      "https://storage.googleapis.com/offer-img-stg/logo-1%403x.png",
+			Copyright: "Petronas Love Local ©2020. All Rights Reserved",
+		},
+	}
+
+	email := Email{
+		Body: Body{
+			Name:       "Temporary password",
+			Intros:     nil,
+			Dictionary: nil,
+			Table:        Table{},
+			QRCode:       "",
+			Actions:      nil,
+			Outros:       nil,
+			Greeting:     "",
+			Signature:    "",
+			Title:        "",
+			FreeMarkdown: "",
+			Registration: Registration{
+				Logo:         "https://storage.googleapis.com/offer-img-stg/logo-1%403x.png",
+				Name:         "Temporary password",
+				EmailAddress: "mohdjamilafiq@gmail.com",
+				Intros: []string{
+					"Petronas Love Local's user has added a new receipt through manual upload.",
+				},
+				TemporaryPassword: "wergsdf",
+				Username: "mohdjamilafiq",
+				Signature: "Petronas Love Local",
+				Copyright: "Petronas Love Local ©2020. All Rights Reserved",
+				SocialMedia: SocialMedia{
+					Facebook:  "facebookURL",
+					Instagram: "instagramURL",
+					Twitter:   "twitterURL",
+					Youtube:   "youtubeURL",
+				},
+				Contact: Contact{
+					Email:       " (+60) 19 200 300",
+					PhoneNumber: " offers@petronaslove.com.my",
+				},
+				AboutUs: "aboutUsURL",
+				ToU:     "ToUURL",
+			},
+		},
+	}
+	res, err := h.GenerateHTML(email)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(res)
+}
+
 func TestHermes_Default(t *testing.T) {
 	h := Hermes{}
 	setDefaultHermesValues(&h)

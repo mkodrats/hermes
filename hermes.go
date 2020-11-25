@@ -94,6 +94,7 @@ type (
 		EmailAddress      string
 		AboutUs           string
 		ToU               string
+		OTP               string
 	}
 	SocialMedia struct {
 		Facebook  string
@@ -104,6 +105,7 @@ type (
 	Contact struct {
 		Email       string
 		PhoneNumber string
+		Address     string
 	}
 )
 

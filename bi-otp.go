@@ -30,7 +30,7 @@ func (dt *BIOtp) HTMLTemplate() string {
 	<div class="container-content" style="max-width:910px;margin:auto">
 		<div class="container" style="max-width:800px;margin:auto;color:#333333">
             
-			<img class="company-image-header" src="https://storage.googleapis.com/offer-img-stg/logo-1%403x.png" alt="" srcset="" style="margin-top:20px;width:151px;height:auto" width="151"/>
+			<img class="company-image-header" src="{{ .Email.Body.Registration.Logo }}" alt="" srcset="" style="margin-top:20px;width:151px;height:auto" width="151"/>
 			<h3 style="color:#646464">Dear {{ .Email.Body.Registration.Name }}</h1>
  			
 			{{ range $row := .Email.Body.Registration.Intros }}
@@ -61,17 +61,17 @@ func (dt *BIOtp) HTMLTemplate() string {
         <div class="row">
 					<div class="column" style="max-width:300px;float:left;font-size:12px;color:#ffffff;padding-right:50px">
 						<div style="display: inline-flex;align-items: top;justify-content: center;">
-							<img src="" 
-								style="width: auto; height: 17px;color:#646464;margin-right:5px; margin-top:3px"/>
+							<img src="https://storage.googleapis.com/bi_icon/map-marker-alt-solid.png" 
+								style="width: auto; height: 17px;color:#646464;margin-right:5px; padding-top:16px"/>
               <p style="font-size:14px;color:#646464">{{ .Email.Body.Registration.Contact.Address }}</p>
 						</div>
 					</div>
 					<div class="column" style="min-width:250px;float:left;font-size:12px;color:#ffffff">
             
-            <p class="pi" style="font-size:14px;text-decoration:none;color:#fff"><img src="" 
-							width="13px" style="font-size:14px;color:#646464; margin-right:3px"/> <a href="mailto:{{ .Email.Body.Registration.Contact.Email }}" target="_blank" style="text-decoration: none; color:#646464">{{ .Email.Body.Registration.Contact.Email }}</a></p>
+            <p class="pi" style="font-size:14px;text-decoration:none;color:#fff"><img src="https://storage.googleapis.com/bi_icon/envelope-solid.png" 
+							width="13px" style="font-size:14px;color:#646464; margin-right:4px"/> <a href="mailto:{{ .Email.Body.Registration.Contact.Email }}" target="_blank" style="text-decoration: none; color:#646464">{{ .Email.Body.Registration.Contact.Email }}</a></p>
 						
-            <p class="pi" style="font-size:14px;color:#646464"><img src="" 
+            <p class="pi" style="font-size:14px;color:#646464"><img src="https://storage.googleapis.com/bi_icon/phone-solid.png" 
 							width="13px" style="margin-right:8px"></span>{{ .Email.Body.Registration.Contact.PhoneNumber }}</p>
 					</div>
 				</div>

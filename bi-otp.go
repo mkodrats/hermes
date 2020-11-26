@@ -22,8 +22,8 @@ func (dt *BIOtp) HTMLTemplate() string {
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com"/>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/>
-	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"/>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
 </head>
 
 <body style="font-family:Roboto, sans-serif">
@@ -59,17 +59,20 @@ func (dt *BIOtp) HTMLTemplate() string {
           <h4 style="color:#646464">Contact Us</h4>
         </div>
         <div class="row">
-					<div class="column" style="max-width:275px;float:left;font-size:12px;color:#ffffff">
+					<div class="column" style="max-width:300px;float:left;font-size:12px;color:#ffffff;padding-right:50px">
 						<div style="display: inline-flex;align-items: top;justify-content: center;">
-						  <span class="icon-map-marker" style="font-size:14px;color:#646464;margin-right:5px; margin-top:3px"></span>
+							<img src="" 
+								style="width: auto; height: 17px;color:#646464;margin-right:5px; margin-top:3px"/>
               <p style="font-size:14px;color:#646464">{{ .Email.Body.Registration.Contact.Address }}</p>
 						</div>
 					</div>
 					<div class="column" style="min-width:250px;float:left;font-size:12px;color:#ffffff">
             
-            <p class="pi" style="font-size:14px;text-decoration:none;color:#fff"><span class="icon-envelope" style="font-size:14px;color:#646464; margin-right:3px"></span> <a href="mailto:{{ .Email.Body.Registration.Contact.Email }}" target="_blank" style="text-decoration: none; color:#646464">{{ .Email.Body.Registration.Contact.Email }}</a></p>
+            <p class="pi" style="font-size:14px;text-decoration:none;color:#fff"><img src="" 
+							width="13px" style="font-size:14px;color:#646464; margin-right:3px"/> <a href="mailto:{{ .Email.Body.Registration.Contact.Email }}" target="_blank" style="text-decoration: none; color:#646464">{{ .Email.Body.Registration.Contact.Email }}</a></p>
 						
-            <p class="pi" style="font-size:14px;color:#646464"><span class="icon-phone" style="margin-right:8px"></span>{{ .Email.Body.Registration.Contact.PhoneNumber }}</p>
+            <p class="pi" style="font-size:14px;color:#646464"><img src="" 
+							width="13px" style="margin-right:8px"></span>{{ .Email.Body.Registration.Contact.PhoneNumber }}</p>
 					</div>
 				</div>
 			</div>

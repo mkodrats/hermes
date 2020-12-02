@@ -759,6 +759,46 @@ func TestHermes_TemporaryPassword(t *testing.T) {
 	fmt.Println(res)
 }
 
+func TestHermes_BIOtp(t *testing.T) {
+	h := Hermes{
+		Theme: new(BIOtp),
+		Product: Product{
+			Name:      "TruRewards",
+			Link:      "",
+			Logo:      "https://storage.googleapis.com/offer-img-stg/logo-1%403x.png",
+			Copyright: "TruRewards ©2020. All Rights Reserved",
+		},
+	}
+
+	email := Email{
+		Body: Body{
+			Name: "Ahmad",
+			Registration: Registration{
+				Logo:         "https://storage.googleapis.com/offer-img-stg/logo-1%403x.png",
+				Name:         "Ahmad",
+				EmailAddress: "mohdjamilafiq@gmail.com",
+				Intros: []string{
+					"Please use the verification code below to complete your registration",
+				},
+				Help:      "Here is your OTP verification code, it will expire in 6 minutes",
+				OTP:       "234567",
+				Signature: "TruRewards",
+				Contact: Contact{
+					Email:       "customer.support@bankislam.com",
+					PhoneNumber: "(+60) 19 296 9465",
+					Address:     "51G, Jalan Desa 9/6, Bandar Country Homes, 48000 Rawang, Selangor, Malaysia",
+				},
+			},
+		},
+	}
+	res, err := h.GenerateHTML(email)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(res)
+}
+
 func TestHermes_Default(t *testing.T) {
 	h := Hermes{}
 	setDefaultHermesValues(&h)

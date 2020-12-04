@@ -1,15 +1,15 @@
 package hermes
 
 // Flat is a theme
-type BIResetPassword struct{}
+type BITemporaryPassword struct{}
 
 // Name returns the name of the flat theme
-func (dt *BIResetPassword) Name() string {
-	return "bi_reset_password"
+func (dt *BITemporaryPassword) Name() string {
+	return "bi_temporary_password"
 }
 
 // HTMLTemplate returns a Golang template that will generate an HTML email.
-func (dt *BIResetPassword) HTMLTemplate() string {
+func (dt *BITemporaryPassword) HTMLTemplate() string {
 	return `
 <!DOCTYPE html>
 <html lang="en">
@@ -34,15 +34,17 @@ func (dt *BIResetPassword) HTMLTemplate() string {
 			<h3 style="color:#646464">Dear {{ .Email.Body.Registration.Name }}</h1>
  			
 			{{ range $row := .Email.Body.Registration.Intros }}
-			<p style="font-size:14px">{{ $row }}</p>
+			<p style="font-size:14px; color:#333333">{{ $row }}</p>
     		{{ end }}
     		
 			<br/>
 			
-			<div style="width:95%;padding:10px;text-align: center;">
-				 <p style="color:#646464; font-size:18px; font-weight:bold">Temporary Password</p>
-         <p style="color:#c9174e; font-size:24px; font-weight:bold">{{ .Email.Body.Registration.TemporaryPassword }}</p>
+			<div style="background-color:#FBEEF2;width:95%;padding:10px">
+				 <p style="color:#333333">Username : {{.Email.Body.Registration.Username}}</p>
+				 <p style="color:#333333">Password : {{.Email.Body.Registration.TemporaryPassword}}</p>
 			</div>
+
+		 <p style="font-size:14px; color:#333333">{{ .Email.Body.Registration.Help }}</p>
 
 			
 			<div class="signature" style="margin-top:50px;line-height:10px; color:#333333; font-size:14px">
@@ -85,7 +87,7 @@ func (dt *BIResetPassword) HTMLTemplate() string {
 }
 
 // PlainTextTemplate returns a Golang template that will generate an plain text email.
-func (dt *BIResetPassword) PlainTextTemplate() string {
+func (dt *BITemporaryPassword) PlainTextTemplate() string {
 	return `<h2>{{if .Email.Body.Title }}{{ .Email.Body.Title }}{{ else }}{{ .Email.Body.Greeting }} {{ .Email.Body.Name }}{{ end }},</h2>
 {{ with .Email.Body.Intros }}
   {{ range $line := . }}

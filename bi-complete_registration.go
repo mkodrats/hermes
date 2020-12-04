@@ -1,15 +1,15 @@
 package hermes
 
 // Flat is a theme
-type BIResetPassword struct{}
+type BICompleteRegistration struct{}
 
 // Name returns the name of the flat theme
-func (dt *BIResetPassword) Name() string {
-	return "bi_reset_password"
+func (dt *BICompleteRegistration) Name() string {
+	return "bi_otp"
 }
 
 // HTMLTemplate returns a Golang template that will generate an HTML email.
-func (dt *BIResetPassword) HTMLTemplate() string {
+func (dt *BICompleteRegistration) HTMLTemplate() string {
 	return `
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +38,6 @@ func (dt *BIResetPassword) HTMLTemplate() string {
     		{{ end }}
     		
 			<br/>
-			
-			<div style="width:95%;padding:10px;text-align: center;">
-				 <p style="color:#646464; font-size:18px; font-weight:bold">Temporary Password</p>
-         <p style="color:#c9174e; font-size:24px; font-weight:bold">{{ .Email.Body.Registration.TemporaryPassword }}</p>
-			</div>
-
 			
 			<div class="signature" style="margin-top:50px;line-height:10px; color:#333333; font-size:14px">
 				<p>Best Regards,</p>
@@ -85,7 +79,7 @@ func (dt *BIResetPassword) HTMLTemplate() string {
 }
 
 // PlainTextTemplate returns a Golang template that will generate an plain text email.
-func (dt *BIResetPassword) PlainTextTemplate() string {
+func (dt *BICompleteRegistration) PlainTextTemplate() string {
 	return `<h2>{{if .Email.Body.Title }}{{ .Email.Body.Title }}{{ else }}{{ .Email.Body.Greeting }} {{ .Email.Body.Name }}{{ end }},</h2>
 {{ with .Email.Body.Intros }}
   {{ range $line := . }}

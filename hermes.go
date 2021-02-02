@@ -2,13 +2,12 @@ package hermes
 
 import (
 	"bytes"
-	"html/template"
-
 	"github.com/Masterminds/sprig"
 	"github.com/imdario/mergo"
 	"github.com/jaytaylor/html2text"
 	"github.com/russross/blackfriday/v2"
 	"github.com/vanng822/go-premailer/premailer"
+	"html/template"
 )
 
 // Hermes is an instance of the hermes email generator
@@ -62,18 +61,19 @@ type Markdown template.HTML
 
 // Body is the body of the email, containing all interesting data
 type Body struct {
-	Name         string   // The name of the contacted person
-	Intros       []string // Intro sentences, first displayed in the email
-	Dictionary   []Entry  // A list of key+value (useful for displaying parameters/settings/personal info)
-	Table        Table    // Table is an table where you can put data (pricing grid, a bill, and so on)
-	QRCode       string
-	Actions      []Action // Actions are a list of actions that the user will be able to execute via a button click
-	Outros       []string // Outro sentences, last displayed in the email
-	Greeting     string   // Greeting for the contacted person (default to 'Hi')
-	Signature    string   // Signature for the contacted person (default to 'Yours truly')
-	Title        string   // Title replaces the greeting+name when set
-	FreeMarkdown Markdown // Free markdown content that replaces all content other than header and footer
-	Registration Registration
+	Name           string   // The name of the contacted person
+	Intros         []string // Intro sentences, first displayed in the email
+	Dictionary     []Entry  // A list of key+value (useful for displaying parameters/settings/personal info)
+	Table          Table    // Table is an table where you can put data (pricing grid, a bill, and so on)
+	QRCode         string
+	Actions        []Action // Actions are a list of actions that the user will be able to execute via a button click
+	Outros         []string // Outro sentences, last displayed in the email
+	Greeting       string   // Greeting for the contacted person (default to 'Hi')
+	Signature      string   // Signature for the contacted person (default to 'Yours truly')
+	Title          string   // Title replaces the greeting+name when set
+	FreeMarkdown   Markdown // Free markdown content that replaces all content other than header and footer
+	Registration   Registration
+	VoucherReceipt VoucherReceipt
 }
 
 type (
@@ -96,6 +96,26 @@ type (
 		ToU               string
 		OTP               string
 	}
+
+	VoucherReceipt struct {
+		Logo         string
+		Name         string
+		SubTitle     string
+		Intros       []string
+		ActionButton string
+		ActionURL    string
+		Voucher      Voucher
+		Signature    string
+		Help         string
+		HelpEmail    string
+		Copyright    string
+		SocialMedia  SocialMedia
+		Contact      Contact
+		EmailAddress string
+		AboutUs      string
+		ToU          string
+	}
+
 	SocialMedia struct {
 		Facebook  string
 		Instagram string
@@ -106,6 +126,17 @@ type (
 		Email       string
 		PhoneNumber string
 		Address     string
+	}
+
+	Voucher struct {
+		Merchant   string
+		Code       string
+		Name       string
+		Value      float64
+		Currency   string
+		RedeemTime string
+		StatusCode int
+		Status     string
 	}
 )
 

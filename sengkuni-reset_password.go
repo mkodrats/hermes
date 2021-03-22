@@ -54,7 +54,7 @@ func (dt *SengkuniResetPassword) HTMLTemplate() string {
 
             <br>
 
-            <div style="width: 865px;height: 0.5px;margin: 6.5px 0;opacity: 0.5;background-color: #ffffff;"></div>
+            <div style="width: 910px;height: 0.5px;margin: 6.5px 0;opacity: 0.5;background-color: #ffffff;"></div>
 
             <br>
 

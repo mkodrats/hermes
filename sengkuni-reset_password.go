@@ -11,162 +11,60 @@ func (dt *SengkuniResetPassword) Name() string {
 // HTMLTemplate returns a Golang template that will generate an HTML email.
 func (dt *SengkuniResetPassword) HTMLTemplate() string {
 	return `
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head>
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Document</title>
 </head>
-<style>
-	body {
-		font-family:  Arial, 'Helvetica Neue', Helvetica, sans-serif;
-	}
 
-	.container {
-		max-width: 800px;
-		margin: auto;
-		color: #333333;
-	}
 
-	.container-content {
-		max-width: 910px;
-		margin: auto;
-	}
-
-	.company-image-header {
-		margin-top: 20px;
-		width: 151px;
-		height: auto;
-	}
-
-	.btn-complete-registration {
-		width: 400px;
-		padding: 15px;
-		border-radius: 8px;
-		background-color: #00aeef;
-		font-size: 13px;
-		font-weight: 700;
-		color: #ffffff;
-		font-family: 'Roboto';
-		text-decoration: none;
-	}
-
-	.help {
-		margin: 30px 0px 0px 0px;
-		font-size: 10px;
-	}
-
-	.link {
-		text-decoration: none;
-		color: #19a29c;
-	}
-
-	.signature {
-		margin-top: 50px;
-		line-height: 10px;
-	}
-
-	.footer {
-		margin-top: 50px;
-		background-color: #19a29c;
-		width: 95%;
-		height: 170px;
-		padding: 10px;
-	}
-
-	.container-footer {
-		margin: auto;
-	}
-
-	.column {
-		margin-top: 20px;
-		min-width: 200px;
-		float: left;
-		font-size: 12px;
-		color: #ffffff !important;
-	}
-
-	i {
-		font-size: 20px;
-	}
-
-	.pi {
-		font-size: 12px;
-	}
-
-	.column h1 {
-		font-size: 16px;
-	}
-
-	.column a {
-		text-decoration: none;
-		color: #ffffff;
-	}
-
-	.row:after {
-		content: "";
-		display: flex;
-		clear: both;
-	}
-
-	.footer-p {
-		text-align: center;
-		font-size: 10px;
-		color: #ffffff;
-	}
-</style>
 
 <body>
-	<div class="container-content">
-		<div class="container">
-            <!-- Company Header -->
-			<img class="company-image-header" src="{{ .Email.Body.Registration.Logo }}" alt=""srcset="">
-			<h1>Hello {{ .Email.Body.Registration.Name }},</h1>
- 			{{ range $row := .Email.Body.Registration.Intros }}
-			<p>{{ $row }}</p>
-    		{{ end }}
-			<br>
-			<a class="btn-complete-registration" href="{{ .Email.Body.Registration.ActionURL }}">{{ .Email.Body.Registration.ActionButton }}</a>
-			<p class="help">{{ .Email.Body.Registration.Help }}</p>
-			<a class="help link"
-				href="{{ .Email.Body.Registration.ActionURL }}">{{ .Email.Body.Registration.ActionURL }}</a>
-			<p>(The confirmation link is valid until {{ .Email.Body.Registration.Expiration }})</p>
-			<div class="signature">
+	<div style="max-width:910px;margin:auto">
+		<div style="max-width:800px;margin:auto;color:#333333;font-family:'Muli';">
+            
+			<img  src="{{ .Email.Body.Registration.Logo }}" style="margin-top:20px;width:100px;height:auto"/>
+            <h1>Hi {{ .Email.Body.Registration.Name }},</h1>
+       
+ 			
+			<p>Your password has been reset. You may now log in using following credentials:</p>
+    		
+            
+            <div style="background-color:#eef3fb;width:95%;padding:10px">
+                <p style="color:#333333;text-indent: 10px;"> Your temporary password is : {{.Email.Body.Registration.TemporaryPassword}}</p>
+           </div>
+		
+			<p>For security reason, please update your password in the account menu after Sign In.</p>
+			<div style="margin-top:50px;line-height:10px">
 				<p>Best Regards,</p>
-				<p>{{ .Email.Body.Registration.Signature }}</p>
+				<p>Authscure</p>
 			</div>
-		</div>
+        </div>
+        
+        <br>
 
-		<div class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="column">
-						<h3>Explore Love Local</h3>
-						<p><a href="{{ .Email.Body.Registration.AboutUs }}">About Us</a></p>
-						<p><a href="{{ .Email.Body.Registration.ToU }}">Term Of Use</a></p>
-					</div>
-					<div class="column">
-						<h3>Contact us</h3>
-						<p class="pi"><i class="fas fa-phone-alt pi"></i> Mesralink Contact Number</p>
-						<p class="pi"><i class="far fa-envelope pi"></i> {{ .Email.Body.Registration.Contact.PhoneNumber }}</p>
-					</div>
-					<div style="margin-top:50px;min-width:200px;float:left;font-size:12px;color:#ffffff">
-						<p class="pi" style="text-decoration: none; color:#fff;"><i class="fas fa-phone-alt pi"></i> Mesralink Support Email</p>
-						<p class="pi" style="text-decoration: none; color:#fff;"><i class="far fa-envelope pi"></i> <a href="mailto:{{ .Email.Body.Registration.Contact.Email }}" target="_blank" style="text-decoration: none; color: #fff">{{ .Email.Body.Registration.Contact.Email }}</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="hhh"></div>
-			<div style="margin-top:10px;min-width:100%;text-align:center;font-size:12px;color:#ffffff;display: flow-root;">
-				<p class="footer-p">{{ .Email.Body.Registration.Copyright }}</p>
-			</div>
+		<div style="margin: auto;background-color:#00b0f0;width:100%;height:150px;padding:10px" height="170">
+            <div style="font-family:Muli;color: #ffffff; text-align: center;font-size: 14px;">
+                <p>This message is automatically generated by Authscure. You received this message because this email address is associated with your Authscure account. </p>
+            </div>
+
+            <br>
+
+            <div style="width: 865px;height: 0.5px;margin: 6.5px 0;opacity: 0.5;background-color: #ffffff;"></div>
+
+            <br>
+
+            <div style="font-family: Montserrat;text-align: center;color: #ffffff;font-size: 14px;">Authscure ©2021. All Rights Reserved</div>
 		</div>
 	</div>
-</body>
 
-</html>
+
+
+</body></html>
 `
 }
 

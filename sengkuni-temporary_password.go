@@ -31,7 +31,7 @@ func (dt *SengkuniTemporaryPassword) HTMLTemplate() string {
             <h1>Hi {{ .Email.Body.Registration.Name }},</h1>
        
  			
-			<p>Congratulations, your account has been created. You may now Sign In using following credentials:</p>
+			<p>Your account has been created. You may now Sign In using the following credentials:</p>
     		
             
             <div style="background-color:#eef3fb;width:95%;padding:10px">

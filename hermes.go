@@ -2,12 +2,13 @@ package hermes
 
 import (
 	"bytes"
+	"html/template"
+
 	"github.com/Masterminds/sprig"
 	"github.com/imdario/mergo"
 	"github.com/jaytaylor/html2text"
 	"github.com/russross/blackfriday/v2"
 	"github.com/vanng822/go-premailer/premailer"
-	"html/template"
 )
 
 // Hermes is an instance of the hermes email generator
@@ -74,9 +75,29 @@ type Body struct {
 	FreeMarkdown   Markdown // Free markdown content that replaces all content other than header and footer
 	Registration   Registration
 	VoucherReceipt VoucherReceipt
+	EvouchaSAAS    EvouchaSAASConfig
 }
 
 type (
+	EvouchaSAASConfig struct {
+		PartnerName         string
+		PartnerLogo         string
+		MainTextColor       string
+		ImportantTextColor  string
+		Greeting            string
+		PhoneNumber         string
+		EmailAddress        string
+		Address             string
+		EvouchaSAASMailInfo EvouchaSAASMailInfo
+	}
+
+	EvouchaSAASMailInfo struct {
+		CustomerName   string
+		QRCode         string
+		ActivationCode string
+		ProductName    string
+		Denom          string
+	}
 	Registration struct {
 		Logo              string
 		Name              string
